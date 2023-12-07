@@ -24,12 +24,12 @@ import json
 
 driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
 #I put in class format so that it is possible to create objects or call certain methods from other classes. For example, In a separate function, I would be able to call multiple classes’ main methods to run all of them at once.
-class SpaceScrape():
+class Scrape():
 
 #returns the name of the file with the current date
     def file_name(self):
         x = date.today()
-        return ("SpaceX " + str(x) + ".csv")
+        return ("Company " + str(x) + ".csv")
     
 
      #Find the last element on the page by scrolling down
@@ -179,8 +179,8 @@ class SpaceScrape():
 #Main method that does the magic  
     def main(self):
         
-        #Opens the SpaceX careers webiste
-        driver.get("https://www.spacex.com/careers/jobs/")
+        #Opens the careers webiste
+        driver.get("...........[link removed]")
         #gives it a second to load
         time.sleep(1)
 
@@ -213,12 +213,12 @@ class SpaceScrape():
                 writer.writerow(myDict)
                 #closes the window with the current job posting
                 driver.close()
-                #go back to main SpaceX careers landing page
+                #go back to main careers landing page
                 driver.switch_to.window(driver.window_handles[0])
             #when the loop is finished with all the job postings, close the webdriver and terminate browser testing
             driver.quit()
 
 #calling upon main method to start running
 if __name__=="__main__": 
-    SpaceScrape().main()
+    Scrape().main()
 
